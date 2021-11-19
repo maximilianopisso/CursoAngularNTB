@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.4.0/rxjs.umd.min.js"
+    integrity="sha512-+44c+4RaNWpQRmhz2dwqH+t6caPi46MTcLaQr96rnvXOOW7SInBN4ivxSIZyqGlLSUOw5UQ+ndUmN417dJPXNA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>RXJS en accion</h1>
+    <!-- <button class ="button-js">CLICK ME!!</button>
+        
+
+
+    <button class ="button-rxjs">CLICK ME RXJS!!</button>
+    <button class ="button-another">CLICK ME ANOTHER RXJS!!</button> -->
+
+    <button class ="button-emit">EMITIR!!</button>
+    <button class ="button-subscribe">SUSCRIBIRSE!!</button>
+    <button class ="button-unsubscribe">DES-SUSCRIBIRSE!!</button>
+</body>
+<script>
+
+const subject$ = new rxjs.Subject();
+
+const buttonEmitir = document.querySelector('.button-emit');
+buttonEmitir.addEventListener('click', () => {
+    subject$.next(`nuevo valor: ${Math.random()} `)
+});
+
+let subscription;
+
+const buttonSubscribir = document.querySelector('.button-subscribe');
+buttonSubscribir.addEventListener('click', () => {
+    subscription = subject$.subscribe(data => console.log(data));
+    console.log('subscribe done');
+});
+
+const buttonUnsubscribir = document.querySelector('.button-unsubscribe');
+buttonUnsubscribir.addEventListener('click', () => {
+    subscription.unsubscribe();
+    console.log('unsubscribe done');
+});
+
+
+
+    //  const buttonJS = document.querySelector('.button-js');
+    // buttonJS.addEventListener('click', () => {
+    //     console.log('CLICK JS!!!')
+    // });
+
+    // const buttonRXJS = document.querySelector('.button-rxjs');
+
+    // // observable
+    // const obsButton$ = rxjs.fromEvent(buttonRXJS, 'click');
+
+    // // suscripcion
+    // obsButton$.subscribe(() => {   // funcion observadora
+    //     console.log('CLICK RXJS !!!')
+    // });
+
+    
+    // const buttonAnother = document.querySelector('.button-another');
+    // buttonAnother.addEventListener('click', () => {
+    //     obsButton$.subscribe(() => {   // funcion observadora
+    //         console.log('CLICK RXJS FROM ANOTHER!!!')
+    //     });
+    // });
+
+</script>
+</html>
