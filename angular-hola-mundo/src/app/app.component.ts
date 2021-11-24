@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-hola-mundo';
+  title = 'Bienvenidos al Hola Mundo en Angular';
 }
+
+
