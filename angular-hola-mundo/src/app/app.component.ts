@@ -9,6 +9,39 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Bienvenidos a mi Netflix';
 
+  empleados = [
+    {
+      nombre: 'Adrian Garcia',
+      puesto: 'Angular Dev',
+      team: 'Backoffice App'
+    },
+    {
+      nombre: 'Daniel Perez',
+      puesto: 'QA',
+      team: 'Backoffice App'
+    },
+    {
+      nombre: 'Gustavo Boilch',
+      puesto: 'Scrum Master',
+      team: ''
+    },
+  ]
+
+
+agregarEmpleado (nombre:string){
+  this.empleados.push(
+    {
+      nombre: nombre,
+      puesto: '',
+      team: '',
+    })
+}
+
+
+
+
+
+
   peliculas=[
     {
       id: 1,
@@ -37,7 +70,7 @@ export class AppComponent {
         "Elliot, a brilliant but highly unstable young cyber-security engineer and vigilante hacker, becomes a key figure.",
       poster:
         "https://m.media-amazon.com/images/M/MV5BMzgxMmQxZjQtNDdmMC00MjRlLTk1MDEtZDcwNTdmOTg0YzA2XkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg",
-      rating: 7,
+      rating: "",
     },
     {
       id: 4,
@@ -57,7 +90,7 @@ export class AppComponent {
         " By day, mild-mannered Dexter is a blood-spatter analyst for the Miami police. But at night, he is a serial killer who only targets other murderers.",
       poster:
         "https://m.media-amazon.com/images/M/MV5BMTM5MjkwMTI0MV5BMl5BanBnXkFtZTcwODQwMTc0OQ@@._V1_.jpg",
-      rating: 5,
+      rating: "",
     },
   ]
 

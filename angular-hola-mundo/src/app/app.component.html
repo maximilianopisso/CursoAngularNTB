@@ -1,4 +1,27 @@
-<h1>{{title}}</h1>
+<h1>Empleados</h1>
+<div class="empleado" *ngFor="let empleado of empleados">
+  <div class="nombre">
+    {{ empleado.nombre }}
+  </div>
+  <!-- <div class="puesto">
+    {{ empleado.puesto }}
+  </div>
+  <div class="team" *ngIf="empleado.team !== ''">
+    TEAM: {{ empleado.team }} -->
+  <!-- </div> -->
+  <br />
+</div>
+<h2>Agregar Empleado</h2>
+<div class="input-gorup mb-3">
+<input #nombre type="text" class="form-control" placeholder="Empleado">
+  <button class="btn btn-primary" (click)="agregarEmpleado(nombre.value)">Agregar Empleado</button>
+</div>
+
+
+
+
+
+<!--
 <div class="cards-container d-flex flex-wrap justify-content-center">
 <div class="card m-4" *ngFor="let pelicula of peliculas" style="width: 18rem;">
   <img class="card-img-top" src="{{pelicula.poster}}" alt="Card image cap">
@@ -7,9 +30,10 @@
     <p class="card-text">{{pelicula.review}}</p>
     <h6 class="card-title-actors">Actores:</h6>
     <p class="card-actors-text">{{pelicula.actors}}</p>
-    <h6 class="card-title-rating">Rating: <span>{{pelicula.rating}}</span></h6>
+    <h6 class="card-title-rating" *ngIf="pelicula.rating !==''">Rating: <span>{{pelicula.rating}}</span></h6>
+    <h6 class="card-title-rating" *ngIf="pelicula.rating ==''">Rating: <span>Sin Calificar</span></h6>
     <a href="#" class="btn btn-primary mt-3">Ver Detalles</a>
 
   </div>
 </div>
-</div>
+</div> -->
