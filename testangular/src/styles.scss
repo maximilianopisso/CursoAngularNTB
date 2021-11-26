@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+// cosas generales y trasnversales a todos los componentes
+
+/*Reseteo las medidas por default*/
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+:root {
+    --boldMainColor: #ce8054;
+    --lightNeutralColor:#F2F2F2 ;
+    --darkNeutralColor: #5A6C73;
+    --accentColor:#B1BDB9;
+    --complimentaryColor: #E7E3E4;
+}

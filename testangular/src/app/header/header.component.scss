@@ -1,0 +1,34 @@
+header{
+  text-align: center;
+  p {
+    text-align: center;
+    color: var(--boldMainColor);
+    text-decoration: none;
+  }
+}
+.slogan{
+  font-family: 'Pacifico';
+  color: var(--darkNeutralColor);
+  margin-top: 0px;
+  font-weight: 800;
+  text-transform: normal;
+  font-size: 18px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+.list-inline {
+  margin-left: 15px;
+  .list-inline-item-right {
+    align-items: flex-end;
+  }
+  .nav-link {
+    color: var(--boldMainColor);
+  }
+}
+.nav-link:hover {
+  color: var(--darkNeutralColor);
+}
+.carrito {
+  height: 30px;
+  width: 30px;
+}
