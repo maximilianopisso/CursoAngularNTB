@@ -1,0 +1,182 @@
+<div class="container p-5">
+  <main>
+    <div class="py-5 text-center">
+      <!-- <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+      <h1>Formulario Reactive</h1>
+      <h4 class="pb-4">Poniendo a prueba lo aprendido en clases en Desafio Nº 3</h4>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h2>Respuesta Reactive:</h2>
+        <p id="respuesta"></p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Campo</th>
+              <th scope="col">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Nombre:</th>
+              <td>{{persona.nombre}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Apellido:</th>
+              <td>{{persona.apellido}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Email:</th>
+              <td>{{persona.email}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Direccion:</th>
+              <td>{{persona.direccion}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Pais:</th>
+              <td>{{persona.pais}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Ciudad:</th>
+              <td>{{persona.ciudad}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Cod. Postal:</th>
+              <td>{{persona.cp}}</td>
+            </tr>
+            <tr>
+              <th scope="row">>Edad:</th>
+              <td>{{persona.mayorEdad}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Sexo:</th>
+              <td>{{persona.sexo}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-7 col-lg-8">
+
+        <h2 class="mb-3">Registro Usuario:</h2>
+
+        <form [formGroup] = "personaReactForm">
+
+          <div class="row g-3 my-3">
+            <div class="col-sm-6 form-group">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre"  name= "nombre" formControlName="nombre">
+              <!-- <div class="invalid-feedback">
+                Valid first name is required.
+              </div> -->
+            </div>
+
+            <div class="col-sm-6 form-group">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellido" name="apellido" formControlName="apellido">
+              <!-- <div class="invalid-feedback">
+                Valid last name is required.
+              </div> -->
+            </div>
+
+
+            <div class="col-12 form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" formControlName="email">
+              <!-- <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div> -->
+            </div>
+
+            <div class="col-12">
+              <label for="direccion" class="form-label">Direccion</label>
+              <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Street 1234" formControlName="direccion">
+              <!-- <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div> -->
+            </div>
+
+            <div class="col-md-5">
+              <label for="pais" class="form-label">Pais</label>
+              <select class="form-select" id="pais" name="pais" formControlName="pais">
+                <option value="">Choose...</option>
+                <option>Argentina</option>
+                <option>Brasil</option>
+                <option>Chile</option>
+                <option>Paraguay</option>
+                <option>Uruguay</option>
+                <option>Venezuela</option>
+              </select>
+              <!-- <div class="invalid-feedback">
+                Please select a valid country.
+              </div> -->
+            </div>
+
+            <div class="col-md-4">
+              <label for="ciudad" class="form-label">Ciudad</label>
+              <select class="form-select" id="ciudad" name="ciudad" formControlName="ciudad">
+                <option value="">Choose...</option>
+                <option>Buenos Aires</option>
+                <option>San Pablo</option>
+                <option>Santiago</option>
+                <option>Asuncion</option>
+                <option>Montevideo</option>
+                <option>Caracas</option>
+              </select>
+              <!-- <div class="invalid-feedback">
+                Please provide a valid state.
+              </div> -->
+            </div>
+
+            <div class="col-md-3">
+              <label for="cp" class="form-label">Código Postal</label>
+              <input type="text" class="form-control" id="cp" name="cp" placeholder="" formControlName="cp">
+              <!-- <div class="invalid-feedback">
+                Zip code required.
+              </div> -->
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Sexo</h4>
+          <div class="my-3">
+            <div class="form-check" >
+              <input id="femenino" name="sexo" type="radio" class="form-check-input" value="Femenino" checked formControlName="sexo">
+              <label class="form-check-label" for="femenino">Femenino</label>
+            </div>
+            <div class="form-check">
+              <input id="masculino" name="sexo" type="radio" class="form-check-input" value="Masculino" formControlName="sexo">
+              <label class="form-check-label" for="masculino">Masculino</label>
+            </div>
+            <div class="form-check">
+              <input id="noBinario" name="sexo" type="radio" class="form-check-input" value="No Binario" formControlName="sexo">
+              <label class="form-check-label" for="noBinario">No Binario</label>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="mayorEdad" name="mayorEdad" formControlName="mayorEdad">
+            <label class="form-check-label" for="mayorEdad">Soy Mayor de 18 años</label>
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-30 mt-5 mx-auto d-block btn btn-primary btn-lg" (click)="reset()" >Limpiar Formulario</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+  <footer class="my-5 p-5 d-flex justify-content-center flex-column align-items-center" style="background-color: rgb(156, 106, 202); color: white; font-size: 1.5rem; ">
+    <p>Register Company</p>
+    <p class="mb-1">&copy; 2017–2021 Copyright</p>
+  </footer>
+
+
+
+
