@@ -1,14 +1,19 @@
+<header class="p-5 d-flex justify-content-center flex-column align-items-center"
+  style="background-color: rgb(156, 106, 202); color: white;">
+  <h1 style=" font-size: 3rem;">Registro Usuario</h1>
+</header>
+
 <div class="container p-5">
   <main>
     <div class="py-5 text-center">
       <!-- <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-      <h1>Formulario Reactive</h1>
-      <h4 class="pb-4">Poniendo a prueba lo aprendido en clases en Desafio Nº 3</h4>
+      <h2>Formulario Reactive</h2>
+      <h5 class="pb-4">Poniendo a prueba lo aprendido en clases en Desafio Nº 3</h5>
     </div>
 
     <div class="row g-5">
       <div class="col-md-5 col-lg-4 order-md-last">
-        <h2>Respuesta Reactive:</h2>
+        <h3>Respuesta Reactive:</h3>
         <p id="respuesta"></p>
         <table class="table table-striped">
           <thead>
@@ -60,14 +65,14 @@
 
       <div class="col-md-7 col-lg-8">
 
-        <h2 class="mb-3">Registro Usuario:</h2>
+        <h3 class="mb-3">Registro Usuario:</h3>
 
-        <form [formGroup] = "personaReactForm">
+        <form [formGroup]="personaReactForm">
 
           <div class="row g-3 my-3">
             <div class="col-sm-6 form-group">
               <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombre"  name= "nombre" formControlName="nombre">
+              <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre">
               <!-- <div class="invalid-feedback">
                 Valid first name is required.
               </div> -->
@@ -84,7 +89,8 @@
 
             <div class="col-12 form-group">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" formControlName="email">
+              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com"
+                formControlName="email">
               <!-- <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div> -->
@@ -92,7 +98,8 @@
 
             <div class="col-12">
               <label for="direccion" class="form-label">Direccion</label>
-              <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Street 1234" formControlName="direccion">
+              <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Street 1234"
+                formControlName="direccion">
               <!-- <div class="invalid-feedback">
                 Please enter your shipping address.
               </div> -->
@@ -143,16 +150,18 @@
 
           <h4 class="mb-3">Sexo</h4>
           <div class="my-3">
-            <div class="form-check" >
-              <input id="femenino" name="sexo" type="radio" class="form-check-input" value="Femenino" checked formControlName="sexo">
+            <div class="form-check">
+              <input id="femenino" name="sexo" type="radio" class="form-check-input" value="Femenino" formControlName="sexo">
               <label class="form-check-label" for="femenino">Femenino</label>
             </div>
             <div class="form-check">
-              <input id="masculino" name="sexo" type="radio" class="form-check-input" value="Masculino" formControlName="sexo">
+              <input id="masculino" name="sexo" type="radio" class="form-check-input" value="Masculino"
+                formControlName="sexo">
               <label class="form-check-label" for="masculino">Masculino</label>
             </div>
             <div class="form-check">
-              <input id="noBinario" name="sexo" type="radio" class="form-check-input" value="No Binario" formControlName="sexo">
+              <input id="noBinario" name="sexo" type="radio" class="form-check-input" value="No Binario"
+                formControlName="sexo">
               <label class="form-check-label" for="noBinario">No Binario</label>
             </div>
           </div>
@@ -166,17 +175,14 @@
 
           <hr class="my-4">
 
-          <button class="w-30 mt-5 mx-auto d-block btn btn-primary btn-lg" (click)="reset()" >Limpiar Formulario</button>
+          <button class="w-30 mt-5 mx-auto d-block btn btn-primary btn-lg" (click)="reset()">Limpiar Formulario</button>
         </form>
       </div>
     </div>
   </main>
 </div>
-  <footer class="my-5 p-5 d-flex justify-content-center flex-column align-items-center" style="background-color: rgb(156, 106, 202); color: white; font-size: 1.5rem; ">
-    <p>Register Company</p>
-    <p class="mb-1">&copy; 2017–2021 Copyright</p>
-  </footer>
-
-
-
-
+<footer class="my-5 p-5 d-flex justify-content-center flex-column align-items-center"
+  style="background-color: rgb(156, 106, 202); color: white; font-size: 1.5rem; ">
+  <p>Fin Resgistro</p>
+  <p class="mb-1">&copy; 2017–2021 Copyright</p>
+</footer>
