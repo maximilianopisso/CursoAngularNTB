@@ -71,44 +71,67 @@
 
           <div class="row g-3 my-3">
             <div class="col-sm-6 form-group">
-              <label for="nombre" class="form-label">Nombre</label>
+              <label for="nombre" class="form-label">Nombre<span class="requerido"> *</span></label>
               <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre">
-              <!-- <div class="invalid-feedback">
-                Valid first name is required.
-              </div> -->
+              <div *ngIf="nombreControl.invalid && (nombreControl.dirty || nombreControl.touched)"
+                class="alert alert-danger">
+                <div *ngIf="nombreControl.hasError('required')">
+                  El nombre es requerido
+                </div>
+                <div *ngIf="nombreControl.hasError('maxlength')">
+                  El nombre no puede superar los 20 caracteres
+                </div>
+              </div>
+
             </div>
 
             <div class="col-sm-6 form-group">
-              <label for="apellido" class="form-label">Apellido</label>
+              <label for="apellido" class="form-label">Apellido<span class="requerido"> *</span></label>
               <input type="text" class="form-control" id="apellido" name="apellido" formControlName="apellido">
-              <!-- <div class="invalid-feedback">
-                Valid last name is required.
-              </div> -->
+              <div *ngIf="apellidoControl.invalid && (apellidoControl.dirty || apellidoControl.touched)"
+                class="alert alert-danger">
+                <div *ngIf="apellidoControl.hasError('required')">
+                  El Apellido es requerido
+                </div>
+                <div *ngIf="apellidoControl.hasError('maxlength')">
+                  El Apellido no puede superar los 20 caracteres
+                </div>
+              </div>
             </div>
 
+
+            <div class="col-12 form-group" style="height: 130px;">
+              <label for="email" class="form-label">Email<span class="requerido"> *</span></label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo: you@example.com"
+                formControlName="email">
+
+              <div *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)"
+                class="alert alert-danger">
+                <div *ngIf="emailControl.hasError('required')">
+                  El email es requerido
+                </div>
+                <div *ngIf="emailControl.hasError('email')">
+                  El email introducido debe ser del tipo you@dominio [ej: angular@gmail.com]
+                </div>
+              </div>
+            </div>
 
             <div class="col-12 form-group">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com"
-                formControlName="email">
-              <!-- <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div> -->
-            </div>
-
-            <div class="col-12">
-              <label for="direccion" class="form-label">Direccion</label>
-              <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Street 1234"
+              <label for="direccion" class="form-label">Direccion<span class="requerido"> *</span></label>
+              <input type="text" class="form-control" id="direccion" name="direccion" placeholder=" Calle 1234"
                 formControlName="direccion">
-              <!-- <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div> -->
+              <div *ngIf="direccionControl.invalid && (direccionControl.dirty || direccionControl.touched)"
+                class="alert alert-danger">
+                <div *ngIf="direccionControl.hasError('required')">
+                  La direccion es requerida
+                </div>
+              </div>
             </div>
 
-            <div class="col-md-5">
-              <label for="pais" class="form-label">Pais</label>
+            <div class="col-md-5 form-group">
+              <label for="pais" class="form-label">Pais<span class="requerido"> *</span></label>
               <select class="form-select" id="pais" name="pais" formControlName="pais">
-                <option value="">Choose...</option>
+                <option value="">Elige...</option>
                 <option>Argentina</option>
                 <option>Brasil</option>
                 <option>Chile</option>
@@ -116,15 +139,15 @@
                 <option>Uruguay</option>
                 <option>Venezuela</option>
               </select>
-              <!-- <div class="invalid-feedback">
-                Please select a valid country.
-              </div> -->
+              <div *ngIf="paisControl.hasError('required') &&  paisControl.touched " class="alert alert-danger">
+                El Pais es un campo requerido
+              </div>
             </div>
 
-            <div class="col-md-4">
-              <label for="ciudad" class="form-label">Ciudad</label>
+            <div class="col-md-4 form-group">
+              <label for="ciudad" class="form-label">Ciudad<span class="requerido"> *</span></label>
               <select class="form-select" id="ciudad" name="ciudad" formControlName="ciudad">
-                <option value="">Choose...</option>
+                <option value="">Elige...</option>
                 <option>Buenos Aires</option>
                 <option>San Pablo</option>
                 <option>Santiago</option>
@@ -132,26 +155,32 @@
                 <option>Montevideo</option>
                 <option>Caracas</option>
               </select>
-              <!-- <div class="invalid-feedback">
-                Please provide a valid state.
-              </div> -->
+              <div *ngIf="ciudadControl.hasError('required') &&  ciudadControl.touched " class="alert alert-danger">
+                El Ciudad es un campo requerido
+              </div>
             </div>
 
-            <div class="col-md-3">
-              <label for="cp" class="form-label">Código Postal</label>
+            <div class="col-md-3"form-group>
+              <label for="cp" class="form-label">Código Postal<span class="requerido"> *</span></label>
               <input type="text" class="form-control" id="cp" name="cp" placeholder="" formControlName="cp">
-              <!-- <div class="invalid-feedback">
-                Zip code required.
-              </div> -->
+              <div *ngIf="cpControl.invalid && (cpControl.dirty || cpControl.touched)" class="alert alert-danger">
+                <div *ngIf="cpControl.hasError('required')">
+                  El codigo postal es requerido
+                </div>
+                <div *ngIf="cpControl.hasError('pattern')">
+                  El codigo postal comprende entre 4 a 5 digitos numericos.
+                </div>
+              </div>
             </div>
           </div>
 
           <hr class="my-4">
 
-          <h4 class="mb-3">Sexo</h4>
-          <div class="my-3">
-            <div class="form-check">
-              <input id="femenino" name="sexo" type="radio" class="form-check-input" value="Femenino" formControlName="sexo">
+          <label for="sexo" class="form-label">Sexo<span class="requerido"> *</span></label>
+          <div class="my-3 form-group">
+            <div class="form-check ">
+              <input id="femenino" name="sexo" type="radio" class="form-check-input" value="Femenino"
+                formControlName="sexo">
               <label class="form-check-label" for="femenino">Femenino</label>
             </div>
             <div class="form-check">
@@ -164,11 +193,14 @@
                 formControlName="sexo">
               <label class="form-check-label" for="noBinario">No Binario</label>
             </div>
+            <div *ngIf="sexoControl.hasError('required') &&  sexoControl.untouched " class="alert alert-danger">
+              El Sexo es un campo requerido
+            </div>
           </div>
 
           <hr class="my-4">
 
-          <div class="form-check">
+          <div class="form-check form-group">
             <input type="checkbox" class="form-check-input" id="mayorEdad" name="mayorEdad" formControlName="mayorEdad">
             <label class="form-check-label" for="mayorEdad">Soy Mayor de 18 años</label>
           </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Persona } from 'src/app/models/persona.model';
+import {Pers}
 
 @Component({
   selector: 'app-reactive-form',
@@ -7,6 +9,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./reactive-form.component.scss']
 })
 export class ReactiveFormComponent implements OnInit {
+
+  personas: Persona[] = [
+    {nombre: 'Juan', apellido: 'Perez', edad:27},
+    {nombre: 'Pedro', apellido: 'Peta', edad:30},
+    {nombre: 'Vane', apellido: 'Montenegro', edad:32},
+    {nombre: 'Fede', apellido: 'Suizra', edad:33},
+  ];
+
 
   personaForm = new FormGroup({
     nombre: new FormControl('',[Validators.required,Validators.minLength(3)]),

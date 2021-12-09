@@ -10,9 +10,6 @@ import { Persona } from '../models/persona.model';
 })
 export class FormularioComponent implements OnInit {
 
-
-  constructor() { }
-
   persona: Persona = {
     nombre: '',
     apellido: '',
@@ -26,22 +23,33 @@ export class FormularioComponent implements OnInit {
   }
 
   personaReactForm = new FormGroup({
-    nombre: new FormControl('', Validators.maxLength(10)),
-    apellido: new FormControl(''),
-    email: new FormControl(''),
-    direccion: new FormControl(''),
-    pais: new FormControl(''),
-    ciudad: new FormControl(''),
-    cp: new FormControl(''),
-    mayorEdad: new FormControl(false),
-    sexo: new FormControl('No Binario',),
+    nombre: new FormControl('',[Validators.required, Validators.maxLength(20)]),
+    apellido: new FormControl('',[Validators.required, Validators.maxLength(20)]),
+    email: new FormControl('',[Validators.required,Validators.email]),
+    //direccion: new FormControl('',Validators.pattern('([A-Za-z])*[0-9]{1,5}]')),
+    direccion: new FormControl('',Validators.required),
+    pais: new FormControl('',[Validators.required]),
+    ciudad: new FormControl('',[Validators.required]),
+    cp: new FormControl('',[Validators.required,Validators.pattern('[0-9]{4,5}')]),
+    mayorEdad: new FormControl('', Validators.required),
+    sexo: new FormControl('',[Validators.required]),
   });
 
-  ngOnInit(): void {
-    this.persona.sexo = this.personaReactForm.value.sexo;
+  nombreControl = this.personaReactForm.controls['nombre'];
+  apellidoControl = this.personaReactForm.controls['apellido']
+  emailControl = this.personaReactForm.controls['email'];
+  direccionControl = this.personaReactForm.controls['direccion'];
+  paisControl =this.personaReactForm.controls['pais'];
+  ciudadControl =this.personaReactForm.controls['ciudad'];
+  cpControl = this.personaReactForm.controls['cp'];
+  sexoControl = this.personaReactForm.controls['sexo'];
 
+  constructor() { }
+
+  ngOnInit(): void {
+
+    this.persona.mayorEdad = false;
     this.personaReactForm.valueChanges.subscribe(values => {
-      console.log(values);
       this.persona.nombre = values.nombre;
       this.persona.apellido = values.apellido;
       this.persona.email = values.email;
@@ -56,6 +64,7 @@ export class FormularioComponent implements OnInit {
 
   reset() {
     this.personaReactForm.reset();
+    this.persona.mayorEdad = false;
   }
 
 }
